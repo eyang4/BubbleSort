@@ -25,6 +25,10 @@ describe("Merge Sort", function() {
       expect(mergeSort([])).toEqual([]);
     });
     it("sorts the array of nums from smallest to largest", function() {
+      expect(mergeSort([4])).toEqual([4]);
+      expect(mergeSort([4, 2])).toEqual([2, 4]);
+      expect(mergeSort([4, 2, 3])).toEqual([2, 3, 4]);
       expect(mergeSort([4, 3, 2, 1])).toEqual([1, 2, 3, 4]);
+      expect(mergeSort([4, 3, 2, 1, 5])).toEqual([1, 2, 3, 4, 5]);
     });
   });

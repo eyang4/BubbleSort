@@ -1,4 +1,5 @@
 function split(wholeArray) {
+    if (wholeArray.length === 1) return wholeArray
     const halfLength = Math.ceil(wholeArray.length/2)
     const firstHalf = wholeArray.slice(0, halfLength)
     const backHalf = wholeArray.slice(halfLength)
@@ -28,4 +29,18 @@ function merge(arr1, arr2) {
         }
     }
     return returnArray
+}
+
+function mergeSort(wholeArray) {
+    if (wholeArray.length <= 1) return wholeArray
+    else if (wholeArray.length === 2) {
+        return merge(...split(wholeArray))
+    }
+    else {
+        // const [elementOne, elementTwo] = split(wholeArray)
+        const splitted = split(wholeArray)
+        const elementOne = splitted[0]
+        const elementTwo = splitted[1]
+        return merge(mergeSort(elementOne), mergeSort(elementTwo))
+    }
 }
